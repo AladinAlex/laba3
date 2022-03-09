@@ -34,7 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('Общежития КубГАУ'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Column(
           children: [
             Row( //картинка
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                  ),
                ],
             ),
-            Row( //
+            Row( //  строка с номер общаги, адресом и лайками
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,// общежитие + адрес
@@ -63,42 +64,95 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Row(
                           children: const <Widget> [
-                            Padding(padding: EdgeInsets.fromLTRB(55, 25, 0, 0),
+                            Padding(padding: EdgeInsets.fromLTRB(75, 25, 0, 0),
                               child: Icon(Icons.favorite, color: Colors.red),
                             ),
                             Padding(padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
                               child: Text('27', style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w500),)
                             ),
-
-                            //Icon(Icons.favorite, color: Colors.red),
-                            //Text('27', style: TextStyle(color: Colors.grey, fontSize: 16),)
                           ],
                         )
                       ],
                   ),
                 ],
             ),
-            Row(
+            Padding(padding: const EdgeInsets.fromLTRB(35, 35, 0, 35),
+                child:
+            Row(  // строка с виджетами позвонить, маршрут, поделиться
+              children: [
+                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
+                    child: Column(
+                      children: const <Widget> [
+                        Icon(Icons.phone, color: Colors.green),
+                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: Text('позвонить', style: TextStyle(color: Colors.green, fontSize: 16),),),
+                      ],
+                      ),
+                ),
+                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
+                    child: Column(
+                      children: const <Widget> [
+                        Icon(Icons.near_me, color: Colors.green),
+                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Text('маршрут', style: TextStyle(color: Colors.green, fontSize: 16),),),
+                      ],
+                  ),
+                ),
+                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Column(
+                      children: const <Widget> [
+                        Icon(Icons.share, color: Colors.green),
+                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: Text('поделиться', style: TextStyle(color: Colors.green, fontSize: 16),),),
+                      ],
+                  ),
+                ),
+              ],
 
             ),
+            ),
+              Padding(padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
+                child: Row(
+                  children: const <Widget>[
+                    Flexible(child:
+                    Text('Студенческий городок или так называемый'
+                        'кампус Кубанского ГАУ состоит из двадцати '
+                        'общежитий, в которых проживает более 8000 '
+                        'студентов, что составляет 96% от всех '
+                        'нуждающихся. Студенты первого курса '
+                        'обеспечены местами в общежитии полностью. '
+                        'В соответствии с Положением о '
+                        'студенческих общежитиях университета, '
+                        'при поселении между администрацией и '
+                        'студентами заключается договор найма '
+                        'жилого помещения. Воспитательная работа в '
+                        'общежитиях направлена на улучшение быта, '
+                        'соблюдение правил внутреннего распорядка, '
+                        'отсутствия асоциальных явлений в '
+                        'молодежной среде. Условия проживания в '
+                        'общежитиях университетского кампуса '
+                        'полностью отвечают санитарным нормам и '
+                        'требованиям: наличие оборудованных кухонь, '
+                        'душевых комнат, прачечных, читальных залов, '
+                        'комнат самоподготовки, помещений для '
+                        'заседаний студенческих советов и наглядной '
+                        'агитации. С целью улучшения условий быта '
+                        'студентов активно работает система '
+                        'студенческого самоуправления - студенческие '
+                        'советы организуют всю работу по '
+                        'самообслуживанию.',
+                      style: TextStyle(color: Colors.black87, fontSize: 16),
+                      textDirection: TextDirection.ltr,
+                      softWrap: true,
+                      textAlign: TextAlign.left,
+                    ),
+              ),
+                  ],
+                ),
+              ),
           ],
         ),
       )
     );
   }
 }
-
-/*
-*         child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-
-          ],
-        ),
-* */
-
-
-//const Image(image: NetworkImage(
-//'https://sun6-20.userapi.com/s/v1/if2/5KzWOm7-zuFbvIsFRwKpM6sl2YLZ1VhRFVL0OK1BQjEHZIqp0PYjKQ2hk9eJ36POQUwlGwXQ47KOTT0OyW-xiQ9y.'
-//'jpg?size=200x200&quality=96&crop=286,118,761,761&ava=1',),),
