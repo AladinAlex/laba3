@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Row( //картинка
                children: <Widget>[
                  SizedBox(
-                     child: Image.network('http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg', fit: BoxFit.fill, width: 400-7.3, height: 300,),
+                     child: Image.network('http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg', fit: BoxFit.fill, width: MediaQuery.of(context).size.width, height: 300,),
                  ),
                ],
             ),
