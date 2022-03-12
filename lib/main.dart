@@ -15,17 +15,24 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _print () {
+    setState(() {
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,9 +122,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
                       //    todo: кнопки должны быть выполнены через виджет Button
                       child: Column(
-                        children: const <Widget>[
-                          Icon(Icons.phone, color: Colors.green),
-                          Padding(
+                        children:  <Widget>[
+                          IconButton(onPressed: _print, icon: const Icon(Icons.phone, color: Colors.green),
+                          ),
+                          const Padding(
                             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                             child: Text(
                               'позвонить',
@@ -131,9 +139,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
                       child: Column(
-                        children: const <Widget>[
-                          Icon(Icons.near_me, color: Colors.green),
-                          Padding(
+                        children:  <Widget>[
+                          IconButton(onPressed: _print, icon: const Icon(Icons.near_me, color: Colors.green),
+                          ),
+                          const Padding(
                             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                             child: Text(
                               'маршрут',
@@ -147,9 +156,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Column(
-                        children: const <Widget>[
-                          Icon(Icons.share, color: Colors.green),
-                          Padding(
+                        children:  <Widget>[
+                          IconButton(onPressed: _print, icon: const Icon(Icons.share, color: Colors.green),
+                          ),
+                         const Padding(
                             padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                             child: Text(
                               'поделиться',
