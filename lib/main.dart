@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -30,91 +29,147 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Общежития КубГАУ'),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Row( //картинка
-               children: <Widget>[
-                 SizedBox(
-                     child: Image.network('http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg', fit: BoxFit.fill, width: MediaQuery.of(context).size.width, height: 300,),
-                 ),
-               ],
-            ),
-            Row( //  строка с номер общаги, адресом и лайками
+        appBar: AppBar(
+          title: const Text('Общежития КубГАУ'),
+        ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              Row(
+                //картинка
+                children: <Widget>[
+                  SizedBox(
+                    // todo:  при переходе из редактора, картинка открывается
+                    //        НО в запущенном эмуляторе - нет.
+                    //        попробуйте найти решение с проверкой типа
+                    //        ЕСЛИ не грузится с сайта, ОТКРЫТЬ существующее в проекте
+                    child: Image.network(
+                      'http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg',
+                      fit: BoxFit.fill,
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                //  строка с номер общаги, адресом и лайками
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.start,// общежитие + адрес
+                    mainAxisAlignment:
+                        MainAxisAlignment.start, // общежитие + адрес
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Padding(padding: EdgeInsets.fromLTRB(25, 30, 10, 0),
-                        child: Text('Общежитие №20', style: TextStyle(color: Colors.black87, fontSize: 18, fontWeight: FontWeight.w600), ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(25, 30, 10, 0),
+                        child: Text(
+                          'Общежитие №20',
+                          style: TextStyle(
+                              color: Colors.black87,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-
-                      Padding(padding: EdgeInsets.fromLTRB(25, 5, 10, 0),
-                        child: Text('Краснодар, ул. Калинина, 13', style: TextStyle(color: Colors.grey, fontSize: 16),),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(25, 5, 10, 0),
+                        child: Text(
+                          'Краснодар, ул. Калинина, 13',
+                          style: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
                       ),
                     ],
                   ),
-                  Column( // лайк
-                      children: [
-                        Row(
-                          children: const <Widget> [
-                            Padding(padding: EdgeInsets.fromLTRB(75, 25, 0, 0),
-                              child: Icon(Icons.favorite, color: Colors.red),
-                            ),
-                            Padding(padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
-                              child: Text('27', style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w500),)
-                            ),
-                          ],
-                        )
-                      ],
+                  Column(
+                    // лайк
+                    children: [
+                      Row(
+                        children: const <Widget>[
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(75, 25, 0, 0),
+                            child: Icon(Icons.favorite, color: Colors.red),
+                          ),
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                              child: Text(
+                                '27',
+                                style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500),
+                              )),
+                        ],
+                      )
+                    ],
                   ),
                 ],
-            ),
-            Padding(padding: const EdgeInsets.fromLTRB(35, 35, 0, 35),
-                child:
-            Row(  // строка с виджетами позвонить, маршрут, поделиться
-              children: [
-                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
-                    child: Column(
-                      children: const <Widget> [
-                        Icon(Icons.phone, color: Colors.green),
-                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          child: Text('позвонить', style: TextStyle(color: Colors.green, fontSize: 16),),),
-                      ],
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(35, 35, 0, 35),
+                child: Row(
+                  // строка с виджетами позвонить, маршрут, поделиться
+                  children: [
+                    // todo:  В следующий раз при размещении объектов с отступами,
+                    //        попробуйте поработать с FLEX
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
+                      //    todo: кнопки должны быть выполнены через виджет Button
+                      child: Column(
+                        children: const <Widget>[
+                          Icon(Icons.phone, color: Colors.green),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Text(
+                              'позвонить',
+                              style:
+                                  TextStyle(color: Colors.green, fontSize: 16),
+                            ),
+                          ),
+                        ],
                       ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
+                      child: Column(
+                        children: const <Widget>[
+                          Icon(Icons.near_me, color: Colors.green),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Text(
+                              'маршрут',
+                              style:
+                                  TextStyle(color: Colors.green, fontSize: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Column(
+                        children: const <Widget>[
+                          Icon(Icons.share, color: Colors.green),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            child: Text(
+                              'поделиться',
+                              style:
+                                  TextStyle(color: Colors.green, fontSize: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 35, 0),
-                    child: Column(
-                      children: const <Widget> [
-                        Icon(Icons.near_me, color: Colors.green),
-                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                            child: Text('маршрут', style: TextStyle(color: Colors.green, fontSize: 16),),),
-                      ],
-                  ),
-                ),
-                Padding(padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: Column(
-                      children: const <Widget> [
-                        Icon(Icons.share, color: Colors.green),
-                        Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          child: Text('поделиться', style: TextStyle(color: Colors.green, fontSize: 16),),),
-                      ],
-                  ),
-                ),
-              ],
-
-            ),
-            ),
-              Padding(padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
                 child: Row(
                   children: const <Widget>[
-                    Flexible(child:
-                    Text('Студенческий городок или так называемый'
+                    Flexible(
+                      child: Text(
+                        'Студенческий городок или так называемый'
                         'кампус Кубанского ГАУ состоит из двадцати '
                         'общежитий, в которых проживает более 8000 '
                         'студентов, что составляет 96% от всех '
@@ -140,18 +195,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         'студенческого самоуправления - студенческие '
                         'советы организуют всю работу по '
                         'самообслуживанию.',
-                      style: TextStyle(color: Colors.black87, fontSize: 16),
-                      textDirection: TextDirection.ltr,
-                      softWrap: true,
-                      textAlign: TextAlign.left,
+                        style: TextStyle(color: Colors.black87, fontSize: 16),
+                        textDirection: TextDirection.ltr,
+                        softWrap: true,
+                        textAlign: TextAlign.left,
+                      ),
                     ),
-              ),
                   ],
                 ),
               ),
-          ],
-        ),
-      )
-    );
+            ],
+          ),
+        ));
   }
 }
