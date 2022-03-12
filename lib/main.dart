@@ -15,22 +15,36 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(),
+      home:  MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Color likeColor = Colors.grey;
+  int _likeCount = 5;
   void _print () {
     setState(() {
 
+    });
+  }
+  void _pressedLike () {
+    setState(() {
+      if (likeColor == Colors.grey) {
+        likeColor = Colors.red;
+        _likeCount++;
+      }
+      else {
+        likeColor = Colors.grey;
+        _likeCount--;
+      }
     });
   }
   @override
@@ -51,12 +65,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     //        НО в запущенном эмуляторе - нет.
                     //        попробуйте найти решение с проверкой типа
                     //        ЕСЛИ не грузится с сайта, ОТКРЫТЬ существующее в проекте
+                    // /------------------------
                     child: Image.network(
                       'http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg',
                       fit: BoxFit.fill,
                       width: MediaQuery.of(context).size.width,
                       height: 300,
                     ),
+                   // child: Image.asset(
+                   //    'C:/dev/laba3/assets/images/111.jpg',
+                   //    fit: BoxFit.fill,
+                   //    width: MediaQuery.of(context).size.width,
+                   //    height: 300,
+                   //  ),
                   ),
                 ],
               ),
@@ -91,16 +112,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     // лайк
                     children: [
                       Row(
-                        children: const <Widget>[
+                        children: <Widget>[
                           Padding(
-                            padding: EdgeInsets.fromLTRB(75, 25, 0, 0),
-                            child: Icon(Icons.favorite, color: Colors.red),
+                            padding: const EdgeInsets.fromLTRB(55, 25, 0, 0),
+                            child:
+                            IconButton(onPressed: _pressedLike, icon: Icon(Icons.favorite, color: likeColor, ),
+                            ),
+
                           ),
-                          Padding(
-                              padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                           Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                               child: Text(
-                                '27',
-                                style: TextStyle(
+                                '$_likeCount',
+                                style: const TextStyle(
                                     color: Colors.grey,
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500),
@@ -112,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(35, 35, 0, 35),
+                padding: const EdgeInsets.fromLTRB(35, 25, 0, 25),
                 child: Row(
                   // строка с виджетами позвонить, маршрут, поделиться
                   children: [
