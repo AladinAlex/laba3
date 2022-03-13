@@ -66,18 +66,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     //        попробуйте найти решение с проверкой типа
                     //        ЕСЛИ не грузится с сайта, ОТКРЫТЬ существующее в проекте
                     // /------------------------
-                    child: Image.network(
-                      'http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg',
+                    // child: Image.network(
+                    //   'http://photos.wikimapia.org/p/00/02/47/09/58_big.jpg',
+                    //   fit: BoxFit.fill,
+                    //   width: MediaQuery.of(context).size.width,
+                    //   height: 300,
+                    // ),
+                   child: Image.asset(
+                      'assets/images/111.jpg',
                       fit: BoxFit.fill,
                       width: MediaQuery.of(context).size.width,
                       height: 300,
                     ),
-                   // child: Image.asset(
-                   //    'C:/dev/laba3/assets/images/111.jpg',
-                   //    fit: BoxFit.fill,
-                   //    width: MediaQuery.of(context).size.width,
-                   //    height: 300,
-                   //  ),
                   ),
                 ],
               ),
